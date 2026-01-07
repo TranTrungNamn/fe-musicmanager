@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import EnvChecker from "./EnvChecker"; // <--- 1. Import component vừa tạo
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* 2. Đặt EnvChecker lên đầu để nó luôn hiện nếu thiếu config */}
+        <EnvChecker />
         {children}
       </body>
     </html>

@@ -273,7 +273,7 @@ export default function Home() {
 
       {/* FOOTER PLAYER (GIỮ NGUYÊN) */}
       {currentTrack && (
-        <div className="fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-gray-900 border-t border-gray-800 flex items-center px-6 z-50">
+        <div className="fixed bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black to-gray-900 border-t border-gray-800 flex items-center px-6 z-50">
           <div className="w-1/3 flex items-center gap-4">
             {selectedAlbum?.coverUrl && (
               <img
