@@ -1,5 +1,5 @@
 // app/EnvChecker.tsx
-"use client"; // Bắt buộc dòng này để chạy ở phía Client
+"use client";
 
 import { useEffect, useState } from "react";
 
@@ -7,8 +7,7 @@ export default function EnvChecker() {
   const [isMissingEnv, setIsMissingEnv] = useState(false);
 
   useEffect(() => {
-    // Kiểm tra xem biến môi trường có giá trị không
-    // Lưu ý: Next.js sẽ replace giá trị này lúc build
+    // Kiểm tra biến môi trường
     if (!process.env.NEXT_PUBLIC_API_URL) {
       setIsMissingEnv(true);
     }
@@ -17,12 +16,13 @@ export default function EnvChecker() {
   if (!isMissingEnv) return null;
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-red-600 text-white p-4 text-center z-[9999] font-bold shadow-lg">
+    // Đã đổi 'top-0' thành 'bottom-0' để nó nằm dưới đáy màn hình
+    <div className="fixed bottom-0 left-0 w-full bg-red-600 text-white p-4 text-center z-[9999] font-bold shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       ⚠️ Cảnh báo: Chưa cấu hình NEXT_PUBLIC_API_URL!
       <br />
       <span className="text-sm font-normal">
-        App đang cố kết nối đến localhost. Nếu bạn không chạy Backend trên máy
-        này, tính năng sẽ bị lỗi.
+        App đang cố kết nối đến localhost. Hãy cấu hình biến môi trường để chạy
+        đúng.
       </span>
     </div>
   );
