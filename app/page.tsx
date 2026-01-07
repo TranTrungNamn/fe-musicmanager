@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import useSWR, { mutate } from "swr"; //
+import useSWR, { mutate } from "swr";
+import { API_URL } from "./config";
 
 // --- 1. ĐỊNH NGHĨA CÁC KIỂU DỮ LIỆU (TYPES) ---
 interface Artist {
@@ -23,9 +24,6 @@ interface Track {
   duration: number;
   streamUrl: string;
 }
-
-// Cấu hình URL Backend
-const API_URL = "http://localhost:3001";
 
 // Hàm fetcher chuẩn cho SWR
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
